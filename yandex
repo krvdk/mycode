@@ -1,0 +1,95 @@
+r = int(input())
+i = int(input())
+c = int(input())
+
+if i == 0:
+    if r != 0:
+        print('3')
+    else:
+        print(c)
+elif i == 1:
+    print(c)
+elif i == 4:
+    if r != 0:
+        print('3')
+    else:
+        print('4')
+elif i == 6:
+    print('0')
+elif i == 7:
+    print('1')
+else:
+    print(i)
+
+______________________________________________________________
+
+a = int(input())
+lst = []
+lst.append(a)
+while a != 0:
+    a = int(input())
+    lst.append(a)
+
+print(lst.count(max(lst)))
+
+_______________________________________________________________
+
+d = list(map(int, input().split()))
+left = [0] * len(d)
+shoppos = -20
+for i in range(len(d)):
+    if d[i] == 2:
+        shoppos = i
+    if d[i] == 1:
+        left[i] = i - shoppos
+ans = 0
+shoppos = 30
+for i in range(len(d) - 1, -1, -1):
+    if d[i] == 2:
+        shoppos = i
+    if d[i] == 1:
+        mindist = min(shoppos - i, left[i])
+        ans = max(ans, mindist)
+print(ans)
+
+________________________________________________________________
+
+a = input()
+tgr = 0
+
+if len(a) % 2 == 1:
+    lc = int(len(a) // 2 - 1)
+    rc = int(len(a) // 2 + 1)
+else:
+    lc = int(len(a) / 2 - 1)
+    rc = int(len(a) / 2)
+
+for i in a[rc:]:
+    if i != a[lc]:
+        tgr += 1
+    lc -= 1
+
+print(tgr)
+
+_____________________________________________________________________-
+
+maxNum = int(input())
+mayList1 = range(1, maxNum + 1)
+mayList = set(mayList1)
+listNum = 0
+while listNum != 'HELP':
+    listNum = input()
+    if str(listNum) == 'HELP':
+        break
+    else:
+        listNum = list(map(int, listNum.split()))
+        guess = set(listNum)
+    answer = str(input())
+    if answer == 'YES' or answer == 'YES ':
+        mayList &= guess
+    if answer == 'NO' or answer == 'NO ':
+        mayList -= guess
+mustList = list(mayList)
+mustList.sort()
+print(*mustList)
+
